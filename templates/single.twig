@@ -1,0 +1,33 @@
+{% extends 'templates/_document.twig' %}
+
+{% block content %}
+  <article>
+    <header>
+      {{ renderComponent('BlockPostHeader', {post: post}) }}
+    </header>
+    <div class="md:flex  justify-between">
+<div class=" md:w-3/4">
+
+<section class=" thumbnail_image_post  overflow-hidden">
+   {% if post.thumbnail %}
+    {{ renderComponent('BlockImage', {image: post.thumbnail, options: {size: 'full'}, noComponentSpacing: true}) }}
+  {% endif %} 
+</section>
+    <section class="wp-block-post-content container  eis-layout-constrained">
+        {{ post.content }}
+    </section>
+    <footer>
+      {# {{ renderComponent('BlockPostFooter', {post: post}) }} #}
+    </footer>
+    <section>
+      {{ renderComponent('GridPostsLatest', {'taxonomies': post.categories(), 'options': {'theme': 'light', 'maxColumns': 3}}) }}
+    </section>
+</div>
+
+<div class="md:flex-1 sticky top-[8%] h-full">Raj Patel sidebar Conetent 
+
+
+</div>
+    </div>
+  </article>
+{% endblock %}

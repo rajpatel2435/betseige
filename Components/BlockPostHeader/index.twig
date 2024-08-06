@@ -1,0 +1,60 @@
+<flynt-component
+	name="BlockPostHeader" {{ not post.thumbnail ? 'data-thumbnail="false"' }}>
+	{# <div class="container" data-size="full" data-theme="light">
+	    <div class="content" data-size="medium" data-align="center">
+	      <h1>{{ post.title }}</h1>
+	      {% if post.post_excerpt %}
+	        <p class="h5">{{ post.post_excerpt }}</p>
+	      {% endif %}
+	      <p class="meta">
+	        <a class="author" href="{{ post.author.link|e('esc_url') }}">
+	          {% if post.author.avatar %}
+	            <img class="avatar lazyload"
+	              src="{{ placeholderImage(48, 48) }}"
+	              data-src="{{ post.author.avatar({size: 96}) }}"
+	              width="48"
+	              height="48"
+	              alt="{{ post.author.name|e }}">
+	          {% endif %}
+	          <span class="visuallyHidden">{{ labels.postedBy|e }}</span>
+	          <small>{{ post.author.name }}</small>
+	        </a>
+	        {% if post.category %}
+	          <a class="category" href="{{ post.category.link|e('esc_url') }}">
+	            <span class="visuallyHidden">{{ labels.postedIn|e }}</span>
+	            <small>{{ post.category }}</small>
+	          </a>
+	        {% endif %}
+	        <span class="readingtime">
+	          <small>{{ labels.readingTime|replace({'%d': post.content|readingtime})|e }}</small>
+	        </span>
+	      </p>
+	    </div>
+	  </div> #}
+
+	<header class=" p-4 pt-[2.5rem] mb-[3rem] md:max-w-[42.5rem] md:mb-[4rem] m-auto xl:max-w-[66.25rem]">
+		<div class=" text-[0.875rem] text-[#ceff45] uppercase category" delay="0.4" style="--t: 0.5s;">{{ post.category }}</div>
+		<h1 class=" text-[1.5rem] md:text-[2.5rem] lg:text-[4rem]" style="--t: 0.5s;" class=""> {{ post.title }}</h1>
+		<div class="infos md:flex justify-between">
+			<div class=" mb-[1.5rem] side flex md:gap-5  justify-between items-center">
+				<div class="author gap-4 flex md:block justify-center items-center text-center">
+
+					<img class="avatar-image lazyload h-12 w-12 md:h-20 md:w-20 rounded-full object-cover" width="96" height="96" src="{{ placeholderImage(96, 96) }}" data-src="{{ post.author.avatar({size: 192}) }}" alt="{{ post.author.name|e }}">
+					{{ post.author.name }}
+				</div>
+				<div class=" flex   md:flex-col">
+					<div>🔥 86</div>
+
+					<time style="color:hsla(0,0%,100%,.5)">29.08.22</time>
+				</div>
+			</div>
+
+			<div class="excerpt text-[1.25rem] md:w-[33.75rem] md:text-[1.25rem] lg:text-[2rem]  lg:w-[49.375rem]">
+				<p>tldr: RLY Network has relaunched a new website, we help developers easily launch token economies using RLY Protocol, this is the start of our journey together.</p>
+			</div>
+		</div>
+	</header>
+	{# {% if post.thumbnail %}
+	    {{ renderComponent('BlockImage', {image: post.thumbnail, options: {size: 'wide'}, noComponentSpacing: true}) }}
+	  {% endif %} #}
+</flynt-component>

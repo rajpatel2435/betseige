@@ -1,0 +1,36 @@
+@import
+  'styles/reset',
+  'styles/variables',
+  'styles/fonts',
+  'styles/base';
+
+// stylelint-disable-next-line scss/load-no-partial-leading-underscore, scss/at-import-partial-extension-disallowed-list
+@import '../Components/**/_style.scss';
+// Tailwind CSS imports
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+$color-bg-menu: rgba(0, 0, 0, .8);
+
+body{
+  width: 100vw;
+overflow-x: hidden;
+}
+// menu Main
+.menu__wrap[data-v-02a33057] {
+  position: relative;
+  z-index: 100;
+  display: flex;
+  width: 100%;
+  height: var(--menu-height-block);
+  max-width: var(--layout-width);
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 var(--layout-margin);
+  border-radius: 16px;
+  background-color: var(--color-bg-menu);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(180px);
+}

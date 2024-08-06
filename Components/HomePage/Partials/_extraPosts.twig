@@ -1,0 +1,49 @@
+
+
+<div class="splide slider_reel py-10 max-w-[1574px] overflow-hidden"  role="group" aria-label="Splide Basic HTML Example">
+  <div class="splide__track">
+		<ul class="splide__list text-white">
+			<a href="/" class="splide__slide ">
+      <img src="https://www.betustv.com/wp-content/uploads/2024/02/3_SUPER-BOWL-Main-Props-FEB7-1024x576.jpg" class=" overlay-bg_black  h-[25rem]  w-[20rem] object-cover rounded-2xl border-2 md:border-4   hover:shadow-blue-500/50 shadow-xl hover:shadow-2xl  border-white"   />
+      
+      </a>
+			
+            <li class="splide__slide"><img src="https://www.betustv.com/wp-content/uploads/2024/02/3_SUPER-BOWL-Main-Props-FEB7-1024x576.jpg" class=" h-[25rem] w-[20rem] object-cover rounded-2xl border-2 md:border-4   hover:shadow-blue-500/50 shadow-xl hover:shadow-2xl  border-white"   /></li>
+			<li class="splide__slide"><img src="https://www.betustv.com/wp-content/uploads/2024/02/3_SUPER-BOWL-Main-Props-FEB7-1024x576.jpg" class=" h-[25rem] w-[20rem] object-cover rounded-2xl border-2 md:border-4   hover:shadow-blue-500/50 shadow-xl hover:shadow-2xl  border-white"   /></li>
+			<li class="splide__slide"><img src="https://www.betustv.com/wp-content/uploads/2024/02/3_SUPER-BOWL-Main-Props-FEB7-1024x576.jpg" class=" h-[25rem] w-[20rem] object-cover rounded-2xl border-2 md:border-4   hover:shadow-blue-500/50 shadow-xl hover:shadow-2xl  border-white"   /></li>
+			<li class="splide__slide"><img src="https://www.betustv.com/wp-content/uploads/2024/02/3_SUPER-BOWL-Main-Props-FEB7-1024x576.jpg" class=" h-[25rem] w-[20rem] object-cover rounded-2xl border-2 md:border-4   hover:shadow-blue-500/50 shadow-xl hover:shadow-2xl  border-white"   /></li>
+			<li class="splide__slide"><img src="https://www.betustv.com/wp-content/uploads/2024/02/3_SUPER-BOWL-Main-Props-FEB7-1024x576.jpg" class=" h-[25rem] w-[20rem] object-cover rounded-2xl border-2 md:border-4   hover:shadow-blue-500/50 shadow-xl hover:shadow-2xl  border-white"   /></li>
+			<li class="splide__slide"><img src="https://www.betustv.com/wp-content/uploads/2024/02/3_SUPER-BOWL-Main-Props-FEB7-1024x576.jpg" class=" h-[25rem] w-[20rem] object-cover rounded-2xl border-2 md:border-4   hover:shadow-blue-500/50 shadow-xl hover:shadow-2xl  border-white"   /></li>
+			<li class="splide__slide"><img src="https://www.betustv.com/wp-content/uploads/2024/02/3_SUPER-BOWL-Main-Props-FEB7-1024x576.jpg" class=" h-[25rem] w-[20rem] object-cover rounded-2xl border-2 md:border-4   hover:shadow-blue-500/50 shadow-xl hover:shadow-2xl  border-white"   /></li>
+			
+            
+            
+            	</ul>
+  </div>
+</div>
+
+<script>
+  document.addEventListener( 'DOMContentLoaded', function() {
+    var splide = new Splide( '.slider_reel' ,{
+        perPage:4,
+          perMove: 1,
+pagination:false,
+        gap:'1rem',
+         breakpoints: {
+
+          		540: {
+			perPage: 1,
+      autoWidth:true,
+        
+               padding: '0.5rem',
+		},
+		640: {
+			perPage: 2,
+        
+               padding: '1.5rem',
+		},
+  }
+    });
+    splide.mount();
+  } );
+</script>

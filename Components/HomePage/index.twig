@@ -1,0 +1,50 @@
+<flynt-component>
+
+    <div class=" splide homePageBannerSection rounded-[20px] md:rounded-full overflow-hidden">
+
+        <div class="splide__track">
+            <ul class="splide__list ">
+
+                <li class="splide__slide rounded-full">
+                    <img src="http://betseige.local/wp-content/uploads/2024/07/1336-350-olympics.webp" class=" h-full w-full object-cover md:rounded-full" /></li>
+
+                <li class="splide__slide rounded-full">
+                    <img src="http://betseige.local/wp-content/uploads/2024/07/1336-350-olympics.webp" class="h-full w-full object-cover md:rounded-full" /></li>
+
+                <li class="splide__slide">
+                    <img src="http://betseige.local/wp-content/uploads/2024/07/1336-350-olympics.webp" class=" h-full w-full object-cover md:rounded-full"  /></li>
+
+            </ul>
+
+        </div>
+    </div>
+
+
+{# Including the news slider #}
+
+
+ {# {% include 'Partials/_news.twig' %} #}
+  {# {% include 'Partials/_newsSample.twig' %} #}
+    {% include 'Partials/_extraPosts.twig' %}
+    {# {% include 'Partials/_matchupsDesign.twig' %} #}
+    {% include 'Partials/_gridUi.twig' %}
+    {% block script %}
+
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function(){
+    new Splide('.homePageBannerSection',{
+        gap:'2rem',
+        breakpoints:{
+            640:{
+                height:'10rem',
+            }
+        }
+    }).mount();
+    })
+    
+    </script>
+
+    {% endblock %}
+
+</flynt-component>

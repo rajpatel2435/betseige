@@ -1,0 +1,117 @@
+<flynt-component load:on="idle" load:on:media="(min-width: 768px)" name="NavigationMain">
+
+
+	<div class="fixed w-full z-50" style="z-index:100000">
+
+
+		<nav class="sticky top-0 z-50 bg-neutral-100/80  font-alternative text-sm font-extrabold backdrop-blur backdrop-saturate-200 dark:bg-[black]/80">
+
+			<div class="flex matchups_slider_header splide justify-center items-center overflow-auto">
+
+				<div class="splide__track">
+					<ul class="splide__list">
+						{% for data in matchup_data|slice(0,15) %}
+							{% include 'Partials/_matchupsDesign.twig'  with {'league':data.leagueName,'gameDateTime': data.gameDateTime, 'homeTeam':data.homeTeamShortName ,'awayTeam': data.awayTeamShortName,'homeSpread':data.homeSpread,'awaySpread':data.awaySpread,'total':data.totalPoints}  %}
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+			<div class="mx-auto px-5  max-w-[1574px] m-auto flex  items-center border-b border-black/10  dark:border-white/15">
+				<h1 class="text-4xl">
+					<a class="flex justify-center items-center" href="/">
+					<img src="/wp-content/themes/flynt/assets/images/BetSeige/cards.png" class=" h-16   w-auto object-cover" /> 
+					<img src="/wp-content/themes/flynt/assets/images/BetSeige/betseigec.png" class=" mt-3 h-12  w-auto object-cover" /> 
+					</a>
+				</h1>
+				<ul class=" flex flex-1 items-center text-[18px] justify-end text-neutral-400 dark:text-neutral-600">
+					<li>
+						<a class=" p-4 text-black opacity-90 transition-opacity hover:opacity-60 aria-[current=page]:opacity-100 dark:text-[#ECE9E4] flex gap-2" href="/nfl">
+					<img src="\wp-content\themes\flynt\assets\images\LeagueLogo\nfl.png" alt="angle_icon" class="h-5 w-5">
+						NFL</a>
+					</li>
+					<li>
+						<a class="block p-4 text-black opacity-90 transition-opacity hover:opacity-60 aria-[current=page]:opacity-100 dark:text-[#ECE9E4]" href="/pricing">NCAF</a>
+					</li>
+					<li>
+						<a class="block p-4 text-black opacity-90 transition-opacity hover:opacity-60 aria-[current=page]:opacity-100 dark:text-[#ECE9E4]" href="/signup">MLB</a>
+					</li>
+
+					<li>
+						<a class="block p-4 text-black opacity-90 transition-opacity hover:opacity-60 aria-[current=page]:opacity-100 dark:text-[#ECE9E4]" href="/signup">UFC</a>
+					</li>
+
+					<li>
+						<a class=" p-4 text-black opacity-90 transition-opacity hover:opacity-60 aria-[current=page]:opacity-100 dark:text-[#ECE9E4] flex justify-center items-center gap-2" href="/signup">
+						<img src="\wp-content\themes\flynt\assets\images\LeagueLogo\boxing.png" alt="angle_icon" class="h-8 w-8 object-cover">
+						Boxing</a>
+					</li>
+
+					<li class="flex justify-center items-center soccer_league_dd relative">
+						<a class="block p-4 text-black opacity-90 transition-opacity hover:opacity-60 aria-[current=page]:opacity-100 dark:text-[#ECE9E4]" href="/signup">Soccer
+						</a>
+						<img src="\wp-content\themes\flynt\assets\images\download.svg" alt="angle_icon">
+
+						<ul class="sub-menu hidden absolute bg-[#1d2129] text-[18px] rounded-xl" style="width: 200px;left: 50%;top: 50%;transform: translate(-50%, 10%);
+								
+																								    z-index: 10;">
+							<li id="menu-item-30964" class="soccer_icon menu-item menu-item-type-taxonomy menu-item-object-category menu-item-30964 h-full p-2 border-b-2 text-white border-[#343b48]">
+								<a href="https://www.betustv.com/mls/">MLS</a>
+							</li>
+							<li id="menu-item-40" class="cl_icon menu-item menu-item-type-taxonomy menu-item-object-category menu-item-40 h-full p-2 border-b-2 text-white border-[#343b48]">
+								<a href="https://www.betustv.com/champions-league/">Champions League</a>
+							</li>
+							<li id="menu-item-48" class="prem_icon menu-item menu-item-type-taxonomy menu-item-object-category menu-item-48 h-full p-2 border-b-2 text-white border-[#343b48] ">
+								<a href="https://www.betustv.com/premier-league/">Premier League</a>
+							</li>
+							<li id="menu-item-41" class="liga_icon menu-item menu-item-type-taxonomy menu-item-object-category menu-item-41 h-full p-2 border-b-2 text-white border-[#343b48]">
+								<a href="https://www.betustv.com/la-liga/">La Liga</a>
+							</li>
+							<li id="menu-item-49" class="ita_icon menu-item menu-item-type-taxonomy menu-item-object-category menu-item-49 h-full p-2 border-b-2 text-white border-[#343b48] ">
+								<a href="https://www.betustv.com/serie-a/">Serie A</a>
+							</li>
+							<li id="menu-item-39" class="bund_icon menu-item menu-item-type-taxonomy menu-item-object-category menu-item-39 h-full p-2 border-b-2 text-white border-[#343b48] ">
+								<a href="https://www.betustv.com/bundesliga/">Bundesliga</a>
+							</li>
+							<li id="menu-item-2664" class="europa_icon menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2664 h-full p-2 text-white border-[#343b48] ">
+								<a href="https://www.betustv.com/europa-league/">Europa League</a>
+							</li>
+						</ul>
+
+					</li>
+
+					<li class="flex justify-center items-center soccer_league_dd relative">
+						<a class="block p-4 text-black opacity-90 transition-opacity hover:opacity-60 aria-[current=page]:opacity-100 dark:text-[#ECE9E4]" href="/signup">More
+						</a>
+
+						<img src="\wp-content\themes\flynt\assets\images\download.svg" alt="angle_icon">
+
+
+						<ul class="sub-menu hidden  absolute bg-[#1d2129] text-[18px] rounded-xl" style="width: 200px;left: 50%;top: 50%;transform: translate(-70%, 14%);
+																								">
+							<li id="menu-item" class="huddle_show_icon menu-item menu-item-type-taxonomy menu-item-object-category menu-item-32964 h-full p-2 border-b-2 text-white border-[#343b48] ">
+
+								<a href="https://www.betustv.com/the-huddle-show/">The Huddle</a>
+
+							</li>
+							<li id="menu-item" class="nba_show_icon menu-item menu-item-type-taxonomy menu-item-object-category menu-item-43 h-full p-2 border-b-2 text-white border-[#343b48] ">
+								<a href="https://www.betustv.com/nba/">NBA</a>
+							</li>
+							<li id="menu-item" class="ncaab_show_icon menu-item menu-item-type-taxonomy menu-item-object-category menu-item-44 h-full p-2 border-b-2 text-white border-[#343b48]">
+								<a href="https://www.betustv.com/ncaab/">NCAAB</a>
+							</li>
+							<li id="menu-item" class="more_sports_icon menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4614 h-full p-2 border-b-2 text-white border-[#343b48] ">
+								<a href="https://www.betustv.com/more-sports/">More Sports</a>
+							</li>
+							<li id="menu-item" class="how_to_bet_icon menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2665 h-full p-2  text-white border-[#343b48] ">
+								<a href="https://www.betustv.com/how-to-bet-on-sports/">How to Bet</a>
+							</li>
+						</ul>
+
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+
+
+</flynt-component>

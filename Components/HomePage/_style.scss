@@ -1,0 +1,98 @@
+@import '@splidejs/splide/css';
+
+@import url('https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css');
+@import url('https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-grid@latest/dist/css/splide-extension-grid.min.css');
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+.p-example {
+    &__body {
+
+  
+    color: #333;
+    }
+    &__splide {
+     
+
+    }
+  }
+  
+  .p-splide {
+    &__slide {
+      position: relative;
+      color: #fff;
+
+
+      
+      overflow: hidden;
+      line-height: 1.5;
+      transition: border-color .15s cubic-bezier(.54,.01,.1,1),background-color .15s cubic-bezier(.54,.01,.1,1);
+    }
+    &__slide-number {
+      position: absolute;
+      bottom: .15em;
+      left: .5rem;
+      font-family: 'Lato', sans-serif;
+      font-size: 1.7rem;
+      line-height: .75;
+      font-weight: bold;
+      @media screen and (min-width: 768px) {
+        left: 1rem;
+        font-size: 3.2rem;
+      }
+    }
+  }
+  
+  .splide {
+    &__slide {
+      &.is-active {
+        .p-splide__slide {
+          background: #13c59d;
+     
+        }
+      }
+    }
+    &__pagination {
+      bottom: -2.3rem;
+      left: 50%;
+      transform: translateX(-50%);
+      &__page {
+        padding: 0;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+  
+        margin: .4em;
+        cursor: pointer;
+        display: block;
+      }
+    }
+  }
+
+  .overlay-bg_black {
+    &::before{
+      content: "";
+      background: linear-gradient(to bottom, transparent 50%, #313131 80%);
+    position: absolute;
+  width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+ background-size: cover;
+ background-position: bottom;
+ opacity: 0.7;
+//  z-index: 100000000;
+    }
+  }
+
+  .soccer_league_dd:hover{
+    ul{
+      display: block;
+    }
+  
+  }

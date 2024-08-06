@@ -1,0 +1,127 @@
+/*
+Theme Name: Flynt
+Theme URI: https://www.flyntwp.com/
+Description: The lightning-fast WordPress Starter Theme for component-based websites with ACF Pro.
+Version: 2.1.1
+Author: Bleech <hello@bleech.de>
+Author URI: https://bleech.de/
+Text Domain: flynt
+Requires PHP: 7.4
+License: MIT
+*/
+
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+/* Background color Contrast */
+
+:root {
+    --color-primary: #fff;
+    --color-on-primary: #000;
+    --color-bg-1: #000;
+    --color-bg-2: #0a0a0a;
+    --color-bg-3: #323234;
+    --color-bg-3-hover: #4F4F53;
+    --color-bg-menu: rgba(0, 0, 0, .8);
+    --color-secondary: rgba(255, 255, 255, .5);
+    --color-placeholder: rgba(255, 255, 255, .3);
+    --color-on-accent: #fff;
+    --color-accent-1: #db9b37;
+    --color-accent-2: #aad4a3;
+    --color-accent-3: #9DBEDD;
+    --color-accent-4: #C2C2C2;
+    --color-accent-5: #A0ACFF;
+    --color-accent-6: #A0ACFF;
+    --color-accent-7: #FFEDAB;
+    --color-accent-1-bg: #ca7900;
+    --color-accent-2-bg: #3A4D37;
+    --color-accent-3-bg: #203345;
+    --color-active: rgba(255, 255, 255, .8);
+    --color-bg-active: rgba(0, 0, 0, .8);
+    --color-border: rgba(255, 255, 255, .2);
+    --color-success: #34C500;
+    --color-on-success: #fff;
+    --color-warning: #C57600;
+    --color-error: #C52300;
+    --menu-height-block: 52px;
+    --menu-height: calc(var(--menu-height-block) + var(--view-margin)* 2);
+    --view-margin: 20px;
+    --layout-margin: 40px;
+    --layout-width: 1280px;
+    --screen-tablet: 960px;
+    --screen-mobile: 680px;
+    --font-text: "Apercu Pro", arial, helvetica, sans-serif;
+    --font-caption: "Tobias", georgia, serif;
+    --font-mono: "Apercu Mono Pro", Menlo, Monaco, Courier, monospace;
+    --scroll-width: calc(100vw - 100%);
+    --margin-0: 4px;
+    --margin-1: 8px;
+    --margin-2: 16px;
+    --margin-3: 24px;
+    --margin-4: 32px;
+    --margin-5: 40px;
+    --margin-6: 48px;
+    --margin-7: 56px;
+    --margin-8: 64px;
+    --margin-9: 72px;
+    --margin-10: 80px;
+    --margin-11: 88px;
+    --margin-12: 100px;
+
+    :root {
+        --color-primary: #fff;
+        --color-on-primary: #000;
+        --color-bg-1: #000;
+        --color-bg-2: #0a0a0a;
+        --color-bg-3: #323234;
+        --color-bg-3-hover: #4F4F53;
+        --color-bg-menu: rgba(0, 0, 0, .8);
+        --color-secondary: rgba(255, 255, 255, .5);
+        --color-placeholder: rgba(255, 255, 255, .3);
+        --color-on-accent: #fff;
+        --color-accent-1: #db9b37;
+        --color-accent-2: #aad4a3;
+        --color-accent-3: #9DBEDD;
+        --color-accent-4: #C2C2C2;
+        --color-accent-5: #A0ACFF;
+        --color-accent-6: #A0ACFF;
+        --color-accent-7: #FFEDAB;
+        --color-accent-1-bg: #ca7900;
+        --color-accent-2-bg: #3A4D37;
+        --color-accent-3-bg: #203345;
+        --color-active: rgba(255, 255, 255, .8);
+        --color-bg-active: rgba(0, 0, 0, .8);
+        --color-border: rgba(255, 255, 255, .2);
+        --color-success: #34C500;
+        --color-on-success: #fff;
+        --color-warning: #C57600;
+        --color-error: #C52300;
+        --menu-height-block: 52px;
+        --menu-height: calc(var(--menu-height-block) + var(--view-margin)* 2);
+        --view-margin: 20px;
+        --layout-margin: 40px;
+        --layout-width: 1280px;
+        --screen-tablet: 960px;
+        --screen-mobile: 680px;
+        --font-text: "Apercu Pro", arial, helvetica, sans-serif;
+        --font-caption: "Tobias", georgia, serif;
+        --font-mono: "Apercu Mono Pro", Menlo, Monaco, Courier, monospace;
+        --scroll-width: calc(100vw - 100%);
+        --margin-0: 4px;
+        --margin-1: 8px;
+        --margin-2: 16px;
+        --margin-3: 24px;
+        --margin-4: 32px;
+        --margin-5: 40px;
+        --margin-6: 48px;
+        --margin-7: 56px;
+        --margin-8: 64px;
+        --margin-9: 72px;
+        --margin-10: 80px;
+        --margin-11: 88px;
+        --margin-12: 100px;
+    }
+}

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="322" height="38" viewBox="0 0 322 38">
+  <defs>
+    <radialGradient id="radial-gradient" cx="0.5" cy="0.5" r="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#0d283e"/>
+      <stop offset="0.744" stop-color="#0b1c2a" stop-opacity="0"/>
+      <stop offset="1" stop-color="#03111c" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <g id="sombras" transform="translate(-1329 -902.916)">
+    <ellipse id="Ellipse_39" data-name="Ellipse 39" cx="161" cy="19" rx="161" ry="19" transform="translate(1329 902.916)" opacity="0.3" fill="url(#radial-gradient)"/>
+    <ellipse id="Ellipse_40" data-name="Ellipse 40" cx="48" cy="12" rx="48" ry="12" transform="translate(1400 909.916)" opacity="0.646" fill="url(#radial-gradient)"/>
+    <ellipse id="Ellipse_41" data-name="Ellipse 41" cx="48" cy="12" rx="48" ry="12" transform="translate(1484 909.916)" opacity="0.646" fill="url(#radial-gradient)"/>
+  </g>
+</svg>

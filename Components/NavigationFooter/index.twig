@@ -1,0 +1,15 @@
+<flynt-component name="NavigationFooter">
+  <div class="container">
+    {# {% if menu %}
+      <nav class="navigation" aria-label="{{ labels.ariaLabel }}">
+        {% include 'Partials/_menu.twig' with {'items': menu.get_items, 'level': '0', 'maxLevel': maxLevel} only %}
+      </nav>
+    {% endif %} #}
+    {% if contentHtml %}
+      <div class="content">{{ contentHtml|e('wp_kses_post') }}</div>
+    {% endif %}
+
+
+    {# <a class="text-center text-3xl border rounded p-3 hover:opacity-70 btn btn-lg btn-help" href="tel:+18004262537">IF YOU HAVE A GAMBLING PROBLEM, CALL 1-800-GAMBLER</a> #}
+  </div>
+</flynt-component>

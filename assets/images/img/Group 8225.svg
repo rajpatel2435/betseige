@@ -1,0 +1,19 @@
+<svg id="Group_8225" data-name="Group 8225" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18.742" height="26.287" viewBox="0 0 18.742 26.287">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_5266" data-name="Rectangle 5266" width="18.742" height="26.287" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <g id="Group_7721" data-name="Group 7721" transform="translate(0 0)" style="mix-blend-mode: normal;isolation: isolate">
+    <g id="Group_7720" data-name="Group 7720" clip-path="url(#clip-path)">
+      <path id="Path_7343" data-name="Path 7343" d="M9.371,31.568a9.371,9.371,0,1,0,9.371,9.371,9.371,9.371,0,0,0-9.371-9.371m0,17.182a7.811,7.811,0,1,1,7.811-7.811A7.812,7.812,0,0,1,9.371,48.75" transform="translate(0 -24.022)" fill="#fff"/>
+    </g>
+  </g>
+  <g id="Group_7723" data-name="Group 7723" transform="translate(0 0)" style="mix-blend-mode: normal;isolation: isolate">
+    <g id="Group_7722" data-name="Group 7722" clip-path="url(#clip-path)">
+      <path id="Path_7344" data-name="Path 7344" d="M48.415,4.512,39.355,0V7.016a8.677,8.677,0,0,1,4.991,1.255V6.566a13.189,13.189,0,0,0-4.621-1.2c-.6-.181,0-.3,0-.3,2.061-.335,5.392,1.012,5.392,1.012l-.006.057,1.444-.709.038,1.808-.089.158-.1,2.023.142.117.543-.117-.227-4.141Z" transform="translate(-29.948 0)" fill="#fff"/>
+      <path id="Path_7345" data-name="Path 7345" d="M5.369,8.271V6.511l-4.069-2L10.36,0V7.016A8.676,8.676,0,0,0,5.369,8.271" transform="translate(-0.989 0)" fill="#fff"/>
+    </g>
+  </g>
+  <text id="BA" transform="translate(4.408 20.142)" fill="#fff" font-size="8" font-family="Exo2-Bold, 'Exo \32 '" font-weight="700"><tspan x="0" y="0" letter-spacing="-0.001em">B</tspan><tspan y="0">A</tspan></text>
+</svg>
