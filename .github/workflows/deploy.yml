@@ -41,7 +41,7 @@ jobs:
         npm install
         npm run build:production
 
-    - name: Save build assets as artifact
+    - name: Save build assets as artifacts
       uses: actions/upload-artifact@v3
       with:
         name: dist
