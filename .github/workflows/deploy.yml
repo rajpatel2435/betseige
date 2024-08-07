@@ -36,6 +36,10 @@ jobs:
         name: theme
         path: .  # Upload everything from the current directory
 
+    - name: Debugging - List workspace contents
+      run: |
+        ls -la /github/workspace
+
     - name: Deploy to DigitalOcean
       uses: appleboy/ssh-action@v0.1.8
       with:
@@ -49,7 +53,7 @@ jobs:
           mkdir -p /var/www/html/wp-content/themes/betseige
 
           # Rsync files to the server
-          rsync -zrSlh --stats /github/workspace/* ***@***:/var/www/html/wp-content/themes/betseige/
+          rsync -zrSlh --stats /github/workspace/* ${{ secrets.DIGITALOCEAN_USERNAME }}@${{ secrets.DIGITALOCEAN_HOST }}:/var/www/html/wp-content/themes/betseige/
 
           # Print confirmation
           echo "New theme files deployed."
