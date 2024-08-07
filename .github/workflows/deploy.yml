@@ -46,5 +46,5 @@ jobs:
         SOURCE: "betseige/"
         REMOTE_HOST: ${{ secrets.DIGITALOCEAN_HOST }}
         REMOTE_USER: ${{ secrets.DIGITALOCEAN_USERNAME }}
-        TARGET: ${{ secrets.SSH_PRIVATE_KEY }}
+        TARGET: "/var/www/html/wp-content/themes/betseige"
 
