@@ -32,8 +32,12 @@ jobs:
     - name: Deploy to DigitalOcean
       uses: appleboy/ssh-action@v0.1.2
       with:
-        ftp-server: ${{ secrets.FTP_HOST }}
-        ftp-username: ${{ secrets.FTP_USERNAME }}
-        ftp-password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./dist
-        server-dir: /var/www/html/wp-content/themes/betsiege
+        host: ${{ secrets.DIGITALOCEAN_HOST }}
+        username: ${{ secrets.DIGITALOCEAN_USERNAME }}
+        key: ${{ secrets.DIGITALOCEAN_SSH_KEY }}
+        script: |
+          # Clean existing theme files
+          ssh -i ${{ secrets.DIGITALOCEAN_SSH_KEY }} ${{ secrets.DIGITALOCEAN_USERNAME }}@${{ secrets.DIGITALOCEAN_HOST }} "rm -rf /path/to/wordpress/wp-content/themes/betseige"
+
+          # Copy new theme files
+          scp -i ${{ secrets.DIGITALOCEAN_SSH_KEY }} -r dist/ ${{ secrets.DIGITALOCEAN_USERNAME }}@${{ secrets.DIGITALOCEAN_HOST }}:/path/to/wordpress/wp-content/themes/betseige
