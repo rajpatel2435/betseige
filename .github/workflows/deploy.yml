@@ -1,3 +1,18 @@
+name: Deploy Theme
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
     - name: Deploy to DigitalOcean via rsync
       uses: appleboy/ssh-action@v0.1.2
       with:
@@ -29,7 +44,4 @@
 
           # Copy new theme files using rsync
           echo "Copying new theme files..."
-          rsync -avz --exclude='.git' --exclude='node_modules' dist/ ${{ secrets.DIGITALOCEAN_USERNAME }}@${{ secrets.DIGITALOCEAN_HOST }}:/var/www/html/wp-content/themes/betseige
-
-          # Print confirmation
-          echo "New theme files deployed."
+          rsync -avz --exclude='.git' --exclude='node_modules' dist/ ${{ secrets.DIGITALOCEAN_USERNAME }}@${{ secrets
