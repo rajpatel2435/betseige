@@ -65,6 +65,7 @@ jobs:
           # Ensure the target directory exists
           echo "Creating target directory if it doesn't exist..."
           mkdir -p /var/www/html/wp-content/themes/betseige
+          mkdir -p /var/www/html/wp-content/themes/betseige/vendor
 
           # Rsync files to the server
           echo "Copying new theme files using rsync..."
