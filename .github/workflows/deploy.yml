@@ -13,12 +13,21 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Clean vendor and install Composer dependencies
-      uses: docker://composer:latest
+
+    - name: Set up PHP and Composer
+      uses: shivammathur/setup-php@v2
       with:
-        args: |
-          rm -rf ./vendor
-          composer install -o 
+        php-version: '8.1'  # Use the PHP version you need
+        coverage: none
+        extensions: mbstring, json, xml
+        tools: composer
+
+        
+    - name: Clean vendor and install Composer dependencies
+      run: |
+        rm -rf ./vendor
+        composer install --optimize-autoloader
+        
 
     - name: Upload Composer dependencies as artifact
       uses: actions/upload-artifact@v3
