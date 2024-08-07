@@ -20,26 +20,14 @@ jobs:
 
     - name: Clean vendor and install dependencies
       run: |
-        # Remove vendor folder included in the repository
         rm -rf ./vendor
-        # Install dependencies
         composer install --optimize-autoloader
 
-    - name: Save vendor directory as artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: vendor
-        path: vendor/
-
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '20.11.1'
-
-    - name: Build project assets
+    - name: List contents of dist folder
       run: |
         npm install
         npm run build:production
+        ls -l dist
 
     - name: Save build assets as artifacts
       uses: actions/upload-artifact@v4
@@ -56,24 +44,11 @@ jobs:
         script: |
           set -x  # Enable command tracing
 
-          # Download vendor directory
-          echo "Downloading vendor directory..."
-          mkdir -p /tmp/vendor
-          cd /tmp
-          curl -L -o vendor.zip ${{ secrets.VENDOR_ARTIFACT_URL }}
-          unzip vendor.zip -d /var/www/html/wp-content/themes/betseige
-
-          # Delete node_modules folder
-          echo "Deleting node_modules folder..."
-          rm -rf /var/www/html/wp-content/themes/betseige/node_modules
+          # Ensure the destination directory exists
+          mkdir -p /var/www/html/wp-content/themes/betseige
 
           # Rsync files to the server
-          echo "Copying new theme files using rsync..."
-          rsync -zrSlh --stats /var/www/html/wp-content/themes/betseige/* ${{ secrets.DIGITALOCEAN_USERNAME }}@${{ secrets.DIGITALOCEAN_HOST }}:/var/www/html/wp-content/themes/betseige
-
-          # Install JQ if needed
-          echo "Installing JQ..."
-          apt-get update && apt-get install -y jq
+          rsync -zrSlh --stats ${{ github.workspace }}/dist/ root@134.209.212.21:/var/www/html/wp-content/themes/betseige
 
           # Print confirmation
           echo "New theme files deployed."
