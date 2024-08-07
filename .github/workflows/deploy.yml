@@ -49,8 +49,6 @@ jobs:
         script: |
           set -x  # Enable command tracing
 
-          pwd
-
           # Ensure the destination directory exists
           mkdir -p /var/www/html/wp-content/themes/betseige
 
