@@ -18,46 +18,14 @@ jobs:
       with:
         args: |
           rm -rf ./vendor
-          composer install -o
+          composer install -o 
 
     - name: Upload Composer dependencies as artifact
       uses: actions/upload-artifact@v3
       with:
         name: vendor
-        path: vendor/
-
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '20.11.1'
-
-    - name: Install Node.js dependencies and build assets
-      run: |
-        npm install
-        npm run build:production
-
-    - name: Upload build artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        name: build
-        path: dist/
-
-    - name: Deploy to DigitalOcean via rsync
-    name: Deploy Theme
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-
+        path: vendor/          
+        
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
@@ -109,4 +77,3 @@ jobs:
 
           # Print confirmation
           echo "New theme files deployed."
-
