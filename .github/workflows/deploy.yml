@@ -19,7 +19,6 @@ jobs:
         sudo mv composer.phar /usr/local/bin/composer
 
     - name: Clean vendor and install dependencies
-      working-directory: wp-content/themes/betseige
       run: |
         # Remove vendor folder included in the repository
         rm -rf ./vendor
