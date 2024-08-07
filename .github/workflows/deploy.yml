@@ -28,13 +28,13 @@ jobs:
         npm install
         npm run build:production
         ls -l
-        ls -l dist
+        ls -l ./dist  # Check contents of dist folder if necessary
 
     - name: Save build assets as artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: dist
-        path: dist/
+        name: theme
+        path: .  # Upload everything from the current directory
 
     - name: Deploy to DigitalOcean
       uses: appleboy/ssh-action@v0.1.8
@@ -49,8 +49,7 @@ jobs:
           mkdir -p /var/www/html/wp-content/themes/betseige
 
           # Rsync files to the server
-          rsync -zrSlh --stats ./* ${{ github.workspace }}/ root@134.209.212.21:/var/www/html/wp-content/themes/betseige
-
+          rsync -zrSlh --stats /home/runner/work/betseige/betseige/ root@134.209.212.21:/var/www/html/wp-content/themes/betseige
 
           # Print confirmation
           echo "New theme files deployed."
