@@ -49,9 +49,6 @@ jobs:
         script: |
           set -x  # Enable command tracing
 
-          # Ensure the destination directory exists
-          mkdir -p /var/www/html/wp-content/themes/betseige
-
           # Rsync files to the server
           - rsync -zrSlh --stats ./* ${{ secrets.DIGITALOCEAN_USERNAME }}@${{ secrets.DIGITALOCEAN_HOST }}:/var/www/html/wp-content/themes/betseige
 
