@@ -3,7 +3,7 @@ name: Deploy Theme
 on:
   push:
     branches:
-      - main  # or the branch you use for deployment
+      - main  # or the branch you use for deployment see
 
 jobs:
   build:
