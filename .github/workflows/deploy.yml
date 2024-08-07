@@ -16,10 +16,12 @@ jobs:
     - name: Set up Composer
       run: |
         curl -sS https://getcomposer.org/installer | php
-        mv composer.phar /usr/local/bin/composer
+        sudo mv composer.phar /usr/local/bin/composer
 
     - name: Clean vendor and install dependencies
       run: |
+        # Navigate to theme directory
+        cd wp-content/themes/betseige
         # Remove vendor folder included in the repository
         rm -rf ./vendor
         # Install dependencies
@@ -29,7 +31,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: vendor
-        path: vendor/
+        path: wp-content/themes/betseige/vendor/
 
     - name: Set up Node.js
       uses: actions/setup-node@v3
@@ -38,6 +40,9 @@ jobs:
 
     - name: Build project assets
       run: |
+        # Navigate to theme directory
+        cd wp-content/themes/betseige
+        # Install node dependencies and build assets
         npm install
         npm run build:production
 
@@ -45,7 +50,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: dist
-        path: dist/
+        path: wp-content/themes/betseige/dist/
 
     - name: Deploy to DigitalOcean
       uses: appleboy/ssh-action@v0.1.8
@@ -56,17 +61,17 @@ jobs:
         script: |
           set -x  # Enable command tracing
 
-          # Delete node_modules folder
-          echo "Deleting node_modules folder..."
-          rm -rf ./node_modules
+          # Delete node_modules folder on the server
+          echo "Deleting node_modules folder on the server..."
+          rm -rf /var/www/html/wp-content/themes/betseige/node_modules
 
           # Rsync files to the server
           echo "Copying new theme files using rsync..."
-          rsync -zrSlh --stats ./dist/* ${{ secrets.DIGITALOCEAN_USERNAME }}@${{ secrets.DIGITALOCEAN_HOST }}:/var/www/html/wp-content/themes/betseige
+          rsync -zrSlh --stats ./wp-content/themes/betseige/* ${{ secrets.DIGITALOCEAN_USERNAME }}@${{ secrets.DIGITALOCEAN_HOST }}:/var/www/html/wp-content/themes/betseige
 
           # Install JQ if needed
           echo "Installing JQ..."
-          apt-get update && apt-get install -y jq
+          sudo apt-get update && sudo apt-get install -y jq
 
           # Print confirmation
           echo "New theme files deployed."
