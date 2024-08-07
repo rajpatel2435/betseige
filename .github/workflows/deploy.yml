@@ -30,7 +30,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: vendor
-        path: wp-content/themes/betseige/vendor/
+        path: vendor/**
 
     - name: Set up Node.js
       uses: actions/setup-node@v3
@@ -38,7 +38,6 @@ jobs:
         node-version: '20.11.1'
 
     - name: Build project assets
-      working-directory: wp-content/themes/betseige
       run: |
         npm install
         npm run build:production
@@ -47,7 +46,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: dist
-        path: wp-content/themes/betseige/dist/
+        path: dist/**
 
     - name: Deploy to DigitalOcean
       uses: appleboy/ssh-action@v0.1.8
@@ -68,7 +67,7 @@ jobs:
 
           # Rsync files to the server
           echo "Copying new theme files using rsync..."
-          rsync -zrSlh --stats ./wp-content/themes/betseige/* ${{ secrets.DIGITALOCEAN_USERNAME }}@${{ secrets.DIGITALOCEAN_HOST }}:/var/www/html/wp-content/themes/betseige
+          rsync -zrSlh --stats ./* ${{ secrets.DIGITALOCEAN_USERNAME }}@${{ secrets.DIGITALOCEAN_HOST }}:/var/www/html/wp-content/themes/betseige
 
           # Install JQ if needed
           echo "Installing JQ..."
