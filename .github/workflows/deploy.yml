@@ -40,4 +40,4 @@ jobs:
           rm -rf /var/www/html/wp-content/themes/betseige
 
           # Copy new theme files
-          scp -r dist/ ${GITHUB_ACTOR}@${{ secrets.DIGITALOCEAN_HOST }}:/var/www/html/wp-content/themes/betseige
+          scp -r dist/ ${{ secrets.DIGITALOCEAN_USERNAME }}@${{ secrets.DIGITALOCEAN_HOST }}:/var/www/html/wp-content/themes/betseige
