@@ -12,7 +12,7 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
-
+        
     - name: Set up Composer
       run: |
         curl -sS https://getcomposer.org/installer | php
@@ -25,29 +25,32 @@ jobs:
         # Install dependencies
         composer install --optimize-autoloader
 
+        
     - name: Save vendor directory as artifact
       uses: actions/upload-artifact@v3
       with:
         name: vendor
         path: vendor/
 
+
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
         node-version: '20.11.1'
 
-    - name: Build project assets
+        
+    - name: Install dependencies and build
       run: |
         npm install
         npm run build:production
 
-    - name: Save build assets as artifact
+    - name: Upload build artifacts
       uses: actions/upload-artifact@v3
       with:
         name: dist
         path: dist/
 
-    - name: Deploy to DigitalOcean
+    - name: Deploy to DigitalOcean via rsync
       uses: appleboy/ssh-action@v0.1.8
       with:
         host: ${{ secrets.DIGITALOCEAN_HOST }}
@@ -56,17 +59,29 @@ jobs:
         script: |
           set -x  # Enable command tracing
 
-          # Delete node_modules folder
-          echo "Deleting node_modules folder..."
-          rm -rf ./node_modules
+          # Print current directory
+          echo "Current directory:"
+          pwd
 
-          # Rsync files to the server
-          echo "Copying new theme files using rsync..."
-          rsync -zrSlh --stats ./dist/* ${{ secrets.DIGITALOCEAN_USERNAME }}@${{ secrets.DIGITALOCEAN_HOST }}:/var/www/html/wp-content/themes/betseige
+          # Print files in the current directory
+          echo "Files in the current directory:"
+          ls -la
 
-          # Install JQ if needed
-          echo "Installing JQ..."
-          apt-get update && apt-get install -y jq
+          # Test SSH connection and print success
+          echo "Testing SSH connection..."
+          ssh -o StrictHostKeyChecking=no -T ${{ secrets.DIGITALOCEAN_USERNAME }}@${{ secrets.DIGITALOCEAN_HOST }} "echo SSH connection successful"
+
+          # Clean existing theme files
+          echo "Cleaning existing theme files..."
+          rm -rf /var/www/html/wp-content/themes/betseige
+
+          # Create target directory if it doesn't exist
+          echo "Creating target directory..."
+          mkdir -p /var/www/html/wp-content/themes/betseige
+
+          # Copy new theme files using rsync
+          echo "Copying new theme files..."
+          rsync -avz --exclude='.git' --exclude='node_modules' dist/ ${{ secrets.DIGITALOCEAN_USERNAME }}@${{ secrets.DIGITALOCEAN_HOST }}:/var/www/html/wp-content/themes/betseige
 
           # Print confirmation
           echo "New theme files deployed."
