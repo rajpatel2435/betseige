@@ -13,17 +13,18 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
         
-    - name: Clean vendor and install dependencies
-      uses: actions/setup-node@v3
-      with:
-        node-version: '20.11.1'
+    - name: Set up Composer
       run: |
-        # Install Composer
         curl -sS https://getcomposer.org/installer | php
+        mv composer.phar /usr/local/bin/composer
+
+    - name: Clean vendor and install dependencies
+      run: |
         # Remove vendor folder included in the repository
         rm -rf ./vendor
         # Install dependencies
-        php composer.phar install --optimize-autoloader
+        composer install --optimize-autoloader
+
         
     - name: Save vendor directory as artifact
       uses: actions/upload-artifact@v3
@@ -31,6 +32,13 @@ jobs:
         name: vendor
         path: vendor/
 
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20.11.1'
+
+        
     - name: Install dependencies and build
       run: |
         npm install
