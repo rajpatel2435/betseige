@@ -48,7 +48,7 @@ jobs:
 
           # Test SSH connection and print success
           echo "Testing SSH connection..."
-          ssh -o StrictHostKeyChecking=no -i ${{ secrets.SSH_PRIVATE_KEY }} root@134.209.212.21 "echo SSH connection successful"
+          ssh -o StrictHostKeyChecking=no -T ${{ secrets.DIGITALOCEAN_USERNAME }}@${{ secrets.DIGITALOCEAN_HOST }} "echo SSH connection successful"
 
           # Clean existing theme files
           echo "Cleaning existing theme files..."
