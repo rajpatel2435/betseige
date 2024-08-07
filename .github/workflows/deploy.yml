@@ -12,6 +12,8 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
+      with:
+        submodules: true  # Ensure submodules are initialized
 
     - name: Set up Composer
       run: |
@@ -26,13 +28,13 @@ jobs:
         composer install --optimize-autoloader
 
     - name: Save vendor directory as artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: vendor
         path: vendor/
 
     - name: Set up Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: '20.11.1'
 
@@ -42,7 +44,7 @@ jobs:
         npm run build:production
 
     - name: Save build assets as artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: dist
         path: dist/
