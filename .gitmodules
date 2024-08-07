@@ -1,3 +1,41 @@
+[submodule "vendor/composer/installers"]
+  path = vendor/composer/installers
+  url = https://github.com/composer/installers.git
+
 [submodule "vendor/erusev/parsedown"]
   path = vendor/erusev/parsedown
   url = https://github.com/erusev/parsedown.git
+
+[submodule "vendor/flyntwp/acf-field-group-composer"]
+  path = vendor/flyntwp/acf-field-group-composer
+  url = https://github.com/flyntwp/acf-field-group-composer.git
+[submodule "vendor/squizlabs/php_codesniffer"]
+  path = vendor/squizlabs/php_codesniffer
+  url = https://github.com/squizlabs/PHP_CodeSniffer.git
+
+[submodule "vendor/symfony/deprecation-contracts"]
+  path = vendor/symfony/deprecation-contracts
+  url = https://github.com/symfony/deprecation-contracts.git
+
+
+[submodule "vendor/symfony/polyfill-ctype"]
+  path = vendor/symfony/polyfill-ctype
+  url = https://github.com/symfony/polyfill-ctype.git
+
+[submodule "vendor/symfony/polyfill-mbstring"]
+  path = vendor/symfony/polyfill-mbstring
+  url = https://github.com/symfony/polyfill-mbstring.git
+
+
+[submodule "vendor/symfony/polyfill-php80"]
+  path = vendor/symfony/polyfill-php80
+  url = https://github.com/symfony/polyfill-php80.git
+
+[submodule "vendor/timber/timber"]
+  path = vendor/timber/timber
+  url = https://github.com/timber/timber.git
+
+
+[submodule "vendor/twig/twig"]
+  path = vendor/twig/twig
+  url = https://github.com/twigphp/Twig.git
