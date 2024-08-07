@@ -6,12 +6,28 @@ on:
       - main
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20.11.1'
+
+    - name: Install dependencies and build
+      run: |
+        npm install
+        npm run build:production
+
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: build
+        path: dist/
 
     - name: Deploy to DigitalOcean via rsync
       uses: appleboy/ssh-action@v0.1.2
@@ -33,6 +49,18 @@ jobs:
           # Test SSH connection and print success
           echo "Testing SSH connection..."
           ssh -o StrictHostKeyChecking=no -T ${{ secrets.DIGITALOCEAN_USERNAME }}@${{ secrets.DIGITALOCEAN_HOST }} "echo SSH connection successful"
+
+          # Clean existing theme files
+          echo "Cleaning existing theme files..."
+          rm -rf /var/www/html/wp-content/themes/betseige
+
+          # Create target directory if it doesn't exist
+          echo "Creating target directory..."
+          mkdir -p /var/www/html/wp-content/themes/betseige
+
+          # Copy new theme files using rsync
+          echo "Copying new theme files..."
+          rsync -avz --exclude='.git' --exclude='node_modules' dist/ ${{ secrets.DIGITALOCEAN_USERNAME }}@${{ secrets.DIGITALOCEAN_HOST }}:/var/www/html/wp-content/themes/betseige
 
           # Print confirmation
           echo "New theme files deployed."
