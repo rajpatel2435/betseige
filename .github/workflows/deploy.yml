@@ -38,13 +38,17 @@ jobs:
         script: |
           set -x  # Enable command tracing
 
-          # Print working directory
+          # Print current directory
           echo "Current directory:"
           pwd
 
-          # Print list of files in the working directory
-          echo "Files in the working directory:"
+          # Print files in the current directory
+          echo "Files in the current directory:"
           ls -la
+
+          # Test SSH connection and print success
+          echo "Testing SSH connection..."
+          ssh -o StrictHostKeyChecking=no -i ${{ secrets.SSH_PRIVATE_KEY }} root@134.209.212.21 "echo SSH connection successful"
 
           # Clean existing theme files
           echo "Cleaning existing theme files..."
