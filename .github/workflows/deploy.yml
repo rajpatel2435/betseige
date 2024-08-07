@@ -23,10 +23,11 @@ jobs:
         rm -rf ./vendor
         composer install --optimize-autoloader
 
-    - name: List contents of dist folder
+    - name: Build project and list contents
       run: |
         npm install
         npm run build:production
+        ls -l
         ls -l dist
 
     - name: Save build assets as artifacts
