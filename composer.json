@@ -7,8 +7,8 @@
   "prefer-stable": true,
   "authors": [
     {
-      "name": "BetSeige",
-      "email": "r4jp47el@gmail.com"
+      "name": "Bleech",
+      "email": "flynt@bleech.de"
     }
   ],
   "require": {
@@ -37,7 +37,6 @@
   "config": {
     "allow-plugins": {
       "composer/installers": true
-    },
-    "platform-check": false
+    }
   }
 }
