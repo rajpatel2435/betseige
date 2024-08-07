@@ -44,4 +44,7 @@ jobs:
 
           # Copy new theme files using rsync
           echo "Copying new theme files..."
-          rsync -avz --exclude='.git' --exclude='node_modules' dist/ ${{ secrets.DIGITALOCEAN_USERNAME }}@${{ secrets
+          rsync -avz --exclude='.git' --exclude='node_modules' dist/ ${{ secrets.DIGITALOCEAN_USERNAME }}@${{ secrets.DIGITALOCEAN_HOST }}:/var/www/html/wp-content/themes/betseige
+
+          # Print confirmation
+          echo "New theme files deployed."
