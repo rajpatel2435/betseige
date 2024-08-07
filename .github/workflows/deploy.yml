@@ -12,8 +12,6 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
-      with:
-        submodules: true  # Ensure submodules are initialized
 
     - name: Set up Composer
       run: |
@@ -34,7 +32,7 @@ jobs:
         path: vendor/
 
     - name: Set up Node.js
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v3
       with:
         node-version: '20.11.1'
 
@@ -49,12 +47,6 @@ jobs:
         name: dist
         path: dist/
 
-    - name: List dist directory
-      run: ls -la ./dist
-
-    - name: List vendor directory
-      run: ls -la ./vendor
-
     - name: Deploy to DigitalOcean
       uses: appleboy/ssh-action@v0.1.8
       with:
@@ -64,15 +56,24 @@ jobs:
         script: |
           set -x  # Enable command tracing
 
-          # Ensure the target directory exists
-          echo "Creating target directory if it doesn't exist..."
-          mkdir -p /var/www/html/wp-content/themes/betseige
-          mkdir -p /var/www/html/wp-content/themes/betseige/vendor
+          # Download vendor directory
+          echo "Downloading vendor directory..."
+          mkdir -p /tmp/vendor
+          cd /tmp
+          curl -L -o vendor.zip ${{ secrets.VENDOR_ARTIFACT_URL }}
+          unzip vendor.zip -d /var/www/html/wp-content/themes/betseige
+
+          # Delete node_modules folder
+          echo "Deleting node_modules folder..."
+          rm -rf /var/www/html/wp-content/themes/betseige/node_modules
 
           # Rsync files to the server
           echo "Copying new theme files using rsync..."
-          rsync -zrSlh --stats ./dist/* ${{ secrets.DIGITALOCEAN_USERNAME }}@${{ secrets.DIGITALOCEAN_HOST }}:/var/www/html/wp-content/themes/betseige
-          rsync -zrSlh --stats ./vendor/* ${{ secrets.DIGITALOCEAN_USERNAME }}@${{ secrets.DIGITALOCEAN_HOST }}:/var/www/html/wp-content/themes/betseige/vendor
+          rsync -zrSlh --stats /var/www/html/wp-content/themes/betseige/* ${{ secrets.DIGITALOCEAN_USERNAME }}@${{ secrets.DIGITALOCEAN_HOST }}:/var/www/html/wp-content/themes/betseige
+
+          # Install JQ if needed
+          echo "Installing JQ..."
+          apt-get update && apt-get install -y jq
 
           # Print confirmation
           echo "New theme files deployed."
