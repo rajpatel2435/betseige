@@ -3,7 +3,7 @@ name: Deploy Theme
 on:
   push:
     branches:
-      - main  # or the branch you use for deployment see
+      - main
 
 jobs:
   build:
@@ -16,7 +16,7 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '20.11.1'  # Adjust this to your Node.js version
+        node-version: '20.11.1'
 
     - name: Install dependencies and build
       run: |
@@ -27,7 +27,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: build
-        path: dist/  # Adjust this path to your build output
+        path: dist/
 
     - name: Deploy to DigitalOcean
       uses: appleboy/ssh-action@v0.1.2
@@ -37,7 +37,7 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
           # Clean existing theme files
-          ssh -i ${{ secrets.SSH_PRIVATE_KEY }} ${{ secrets.DIGITALOCEAN_USERNAME }}@${{ secrets.DIGITALOCEAN_HOST }} "rm -rf /path/to/wordpress/wp-content/themes/betseige"
+          rm -rf /path/to/wordpress/wp-content/themes/betseige
 
           # Copy new theme files
-          scp -i ${{ secrets.SSH_PRIVATE_KEY }} -r dist/ ${{ secrets.DIGITALOCEAN_USERNAME }}@${{ secrets.DIGITALOCEAN_HOST }}:/path/to/wordpress/wp-content/themes/betseige
+          scp -r dist/ ${GITHUB_ACTOR}@${{ secrets.DIGITALOCEAN_HOST }}:/path/to/wordpress/wp-content/themes/betseige
