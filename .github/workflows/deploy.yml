@@ -37,7 +37,7 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
           # Clean existing theme files
-          ssh -i ${{ secrets.DIGITALOCEAN_SSH_KEY }} ${{ secrets.DIGITALOCEAN_USERNAME }}@${{ secrets.DIGITALOCEAN_HOST }} "rm -rf /path/to/wordpress/wp-content/themes/betseige"
+          ssh -i ${{ secrets.SSH_PRIVATE_KEY }} ${{ secrets.DIGITALOCEAN_USERNAME }}@${{ secrets.DIGITALOCEAN_HOST }} "rm -rf /path/to/wordpress/wp-content/themes/betseige"
 
           # Copy new theme files
-          scp -i ${{ secrets.DIGITALOCEAN_SSH_KEY }} -r dist/ ${{ secrets.DIGITALOCEAN_USERNAME }}@${{ secrets.DIGITALOCEAN_HOST }}:/path/to/wordpress/wp-content/themes/betseige
+          scp -i ${{ secrets.SSH_PRIVATE_KEY }} -r dist/ ${{ secrets.DIGITALOCEAN_USERNAME }}@${{ secrets.DIGITALOCEAN_HOST }}:/path/to/wordpress/wp-content/themes/betseige
