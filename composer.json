@@ -35,6 +35,7 @@
     }
   },
   "config": {
+    "platform-check": false,
     "allow-plugins": {
       "composer/installers": true
     }
