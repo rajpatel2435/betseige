@@ -1,5 +1,5 @@
 flynt-component[name='NavigationMain'] {
-  --navigation-height: 14rem;
+  --navigation-height: 10rem;
   block-size: var(--navigation-height);
   display: none;
   font-size: var(--font-size-body-small);
@@ -39,3 +39,17 @@ flynt-component[name='NavigationMain'] {
   @import 'Partials/logo';
   @import 'Partials/menu';
 }
+
+.league_selector_matchups {
+  &:hover{
+    opacity: 0.8;
+  }
+}
+
+.select_league_text_hover:hover{
+
+    .sub-menu_league{
+      display: block;
+   
+    }
+  }

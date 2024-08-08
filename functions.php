@@ -37,3 +37,6 @@ add_action('wp_enqueue_scripts',function (): void{
 });
 
 
+add_filter('Flynt/TimberDynamicResize/relativeUploadDir', function () {
+    return 'app/uploads'; // Example for Bedrock installs.
+});
